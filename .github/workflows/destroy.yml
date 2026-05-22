@@ -1,0 +1,54 @@
+name: 💣 Destroy All Resources
+
+on:
+  workflow_dispatch:
+
+env:
+  AWS_REGION: us-east-1
+
+jobs:
+  destroy:
+    name: 💣 Terraform Destroy
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: terraform
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:            ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.0"
+          terraform_wrapper: false
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
+
+      - name: Delete remaining resources
+        run: |
+          aws ecs update-service --cluster naija-store-cluster --service naija-store-service --desired-count 0 --region us-east-1 2>/dev/null || true
+          aws ecs delete-service --cluster naija-store-cluster --service naija-store-service --force --region us-east-1 2>/dev/null || true
+          aws ecs delete-cluster --cluster naija-store-cluster --region us-east-1 2>/dev/null || true
+          aws ecr delete-repository --repository-name naija-store-app --force --region us-east-1 2>/dev/null || true
+          aws s3 rb s3://naija-store-static-139561979448 --force --region us-east-1 2>/dev/null || true
+          aws dynamodb delete-table --table-name naija-store-products --region us-east-1 2>/dev/null || true
+          aws dynamodb delete-table --table-name naija-store-orders --region us-east-1 2>/dev/null || true
+          aws dynamodb delete-table --table-name naija-store-users --region us-east-1 2>/dev/null || true
+          aws dynamodb delete-table --table-name naija-store-lock --region us-east-1 2>/dev/null || true
+          POOL_ID=$(aws cognito-idp list-user-pools --max-results 10 --region us-east-1 --query 'UserPools[?contains(Name,`naija-store`)].Id' --output text 2>/dev/null)
+          [ ! -z "$POOL_ID" ] && aws cognito-idp delete-user-pool-domain --domain naija-store-auth --user-pool-id $POOL_ID --region us-east-1 2>/dev/null || true
+          [ ! -z "$POOL_ID" ] && aws cognito-idp delete-user-pool --user-pool-id $POOL_ID --region us-east-1 2>/dev/null || true
+          echo "All resources destroyed!"
