@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Say It Like a Native - Master English Idioms with Confidence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            background: #FFD700;
+            color: #1e3c72;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #FFC700;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            margin-top: 60px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .hero-content .author {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Who This Book Is For Section */
+        .target-audience {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #FFD700;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .testimonial-card .stars {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .testimonial-author strong {
+            color: #1e3c72;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .audience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .audience-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .audience-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        /* About Author Section */
+        .about-author {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* Author Stats */
+        .author-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 10px;
+            color: white;
+            min-width: 180px;
+            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button-large {
+            background: #FFD700;
+            color: #1e3c72;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button-large:hover {
+            background: #FFC700;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            color: white;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .author-stats {
+                gap: 1rem;
+            }
+
+            .stat-card {
+                min-width: 150px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+
+            .badge {
+                font-size: 0.85rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 1rem;
+            }
+
+            .cta-button-large {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Floating leaves decoration */
+        .leaf-icon {
+            color: #4CAF50;
+        }
+
+        /* Testimonial placeholder */
+        .testimonial {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #FFD700;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">🌿 Say It Like a Native</div>
+            <a href="#" class="cta-button gumroad-button" data-gumroad-single-product="true">Get Your Copy</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>🌿 Say It Like a Native</h1>
+                <p class="subtitle">Mastering English Idioms with Confidence</p>
+                <p class="author">By Jesutoroti Abimbola Oyeniyi</p>
+                <p>Do you ever feel like English speakers are saying one thing but meaning another? You're not alone — and that's exactly why this book was written.</p>
+                <p><strong>Unlock the Heart of Everyday English</strong> and learn the colourful expressions that make the language come alive.</p>
+                <a href="#" class="cta-button-large gumroad-button" data-gumroad-single-product="true">📘 Get Instant Access Now</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">Instant download • Secure payment • 30-day guarantee</p>
+            </div>
+            <div class="hero-image">
+                <img src="images/book-cover.png" alt="Say It Like a Native Book Cover" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Discover Section -->
+    <section class="features">
+        <div class="section-container">
+            <h2 class="section-title">What You'll Discover Inside</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>💡 Understanding Idioms</h3>
+                    <p>What idioms really are — and why they matter in everyday conversation</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎯 Practical Learning</h3>
+                    <p>How to learn, remember, and use them confidently in real situations</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💬 Real Conversations</h3>
+                    <p>See idioms in action through authentic dialogue examples</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌍 Cultural Context</h3>
+                    <p>Discover the surprising cultural stories behind everyday expressions</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✍️ Practice Activities</h3>
+                    <p>Engaging exercises and reflection prompts to make learning stick</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎓 Exam Success</h3>
+                    <p>Expert tips for using idioms naturally in IELTS, PTE, and beyond</p>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 1.2rem; color: #555; max-width: 800px; margin: 0 auto;">
+                Each chapter gently guides you from understanding to mastery, combining learning, culture, and confidence in one inspiring journey.
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-container">
+            <h2 class="section-title">What Students Are Saying</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Hear from real learners who transformed their English with idioms
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"This book changed the way I speak English! I used to struggle with understanding native speakers, but now I can actually join conversations naturally. The idioms are explained so clearly with real examples. My IELTS speaking score improved from 6.5 to 7.5!"</p>
+                    <div class="testimonial-author">
+                        <strong>Maria Rodriguez</strong>
+                        <span>IELTS Candidate, Spain</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"As an ESL teacher, I was looking for a resource that actually explains the 'why' behind idioms. This book is perfect! My students love the cultural stories and the practice activities. It's now a staple in my classroom."</p>
+                    <div class="testimonial-author">
+                        <strong>Chen Wei</strong>
+                        <span>ESL Teacher, Singapore</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I've been learning English for 5 years but always felt like something was missing. This book filled that gap! Now I understand why my colleagues say things like 'break a leg' and 'it's raining cats and dogs.' I feel so much more confident at work."</p>
+                    <div class="testimonial-author">
+                        <strong>Ahmed Hassan</strong>
+                        <span>Software Engineer, UAE</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The way this book teaches idioms is brilliant! Instead of just listing them, it shows you how to use them in real conversations. The cultural background stories make them so much easier to remember. Highly recommend for anyone preparing for PTE or IELTS!"</p>
+                    <div class="testimonial-author">
+                        <strong>Priya Sharma</strong>
+                        <span>PTE Student, India</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"Finally, a book that doesn't just teach you idioms but helps you UNDERSTAND them! The practice activities are engaging and the reflection prompts really make you think. I've recommended it to all my classmates."</p>
+                    <div class="testimonial-author">
+                        <strong>Lucas Silva</strong>
+                        <span>University Student, Brazil</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"I bought this for my IELTS prep and it exceeded my expectations! The idioms are organized perfectly and the tips for using them naturally in exams were game-changing. My examiner was impressed with my vocabulary range!"</p>
+                    <div class="testimonial-author">
+                        <strong>Yuki Tanaka</strong>
+                        <span>IELTS 8.0 Achiever, Japan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who This Book Is For Section -->
+    <section class="target-audience">
+        <div class="section-container">
+            <h2 class="section-title">Who This Book Is For</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="icon">🌟</div>
+                    <h3>English Learners</h3>
+                    <p>Who want to sound natural and fluent in everyday conversation</p>
+                </div>
+                <div class="audience-card">
+                    <div class="icon">📚</div>
+                    <h3>IELTS & PTE Candidates</h3>
+                    <p>Looking to impress examiners with authentic language use</p>
+                </div>
+                <div class="audience-card">
+                    <div class="icon">👨‍🏫</div>
+                    <h3>ESL Teachers</h3>
+                    <p>Seeking ready-to-teach examples and practical resources</p>
+                </div>
+                <div class="audience-card">
+                    <div class="icon">🤔</div>
+                    <h3>Curious Minds</h3>
+                    <p>Who love learning the "why" behind language and culture</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About the Author Section -->
+    <section class="about-author">
+        <div class="section-container">
+            <h2 class="section-title">About the Author</h2>
+            <div class="about-content">
+                <p><strong>Jesutoroti Abimbola Oyeniyi</strong> is an experienced English teacher and IELTS tutor who has been teaching since 2018.</p>
+                <p>She has helped learners from around the world express themselves with confidence and clarity. Her teaching blends empathy, creativity, and practicality, making English not just a language to study — but one to enjoy and live.</p>
+                <p>Through <em>Say It Like a Native</em>, she shares her passion for helping learners bridge the gap between understanding English and truly speaking it from the heart.</p>
+                
+                <!-- Stats Section -->
+                <div class="author-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Years Teaching</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Students Helped</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">⭐⭐⭐⭐⭐</div>
+                        <div class="stat-label">IELTS Expert</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section" id="buy">
+        <div class="section-container">
+            <h2>Step Into the Rhythm of Real English</h2>
+            <p>If you've ever wanted to sound like a native, this book is your perfect companion. Learn the expressions that make English warm, witty, and wonderfully human — and start using them today with confidence.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button-large gumroad-button" data-gumroad-single-product="true">
+                    📘 Buy Now - Instant Download
+                </a>
+                <a href="https://www.amazon.com/dp/YOUR-BOOK-ASIN" class="cta-button-large" target="_blank" style="background: #232F3E; color: white;">
+                    🛒 Also Available on Amazon
+                </a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1rem; opacity: 0.9;">Begin your journey to natural, fluent English — one idiom at a time.</p>
+            
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="badge">✅ Instant Digital Download</div>
+                <div class="badge">✅ Secure Payment via Gumroad</div>
+                <div class="badge">✅ 30-Day Money-Back Guarantee</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jesutoroti Abimbola Oyeniyi. All rights reserved.</p>
+        <p>Say It Like a Native: Mastering English Idioms with Confidence</p>
+    </footer>
+
+    <!-- Gumroad Overlay Script -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

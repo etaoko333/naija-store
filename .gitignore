@@ -1,0 +1,26 @@
+# Terraform
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/tfplan
+terraform/*.tfvars
+terraform/*.bak
+
+# Node
+app/node_modules/
+app/server/node_modules/
+app/dist/
+app/.env
+app/.env.local
+
+# AWS
+.aws/
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
